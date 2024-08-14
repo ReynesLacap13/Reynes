@@ -1,0 +1,30 @@
+﻿@page
+@model Index
+
+<div class="text-center">
+    @{
+        if (Model.DataResult != null)
+        {
+            @foreach (var brewery in Model.DataResult)
+            {
+                <h1 class="display-4">@brewery.Name</h1>
+                <h2>@brewery.BreweryType</h2>
+                <p>
+                    <strong>Address:</strong> @brewery.Address1, @brewery.City, @brewery.StateProvince, @brewery.PostalCode
+                </p>
+                <p>
+                    <strong>Phone:</strong> @brewery.Phone
+                </p>
+                <p>
+                    <strong>Website:</strong> <a href="@brewery.WebsiteUrl">@brewery.WebsiteUrl</a>
+                </p>
+                <hr />
+            }
+        }
+        else
+        {
+            <h2>No data</h2>
+        }
+    }
+    <p>Learn about <a href="https://api.openbrewerydb.org/breweries">building Web apps with ASP.NET Core</a>.</p>
+</div>
